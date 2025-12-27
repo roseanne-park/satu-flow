@@ -1,0 +1,46 @@
+
+// --- MASTER DATA WILAYAH (38 KAB/KOTA JATIM) ---
+// NOTE: Di project asli (VS Code), pindahkan array ini ke file 'regionsData.js' lalu import.
+const REGIONS = [
+  // --- KABUPATEN (29) ---
+  { id: '3501', name: 'Kab. Pacitan', lat: -8.2035, lng: 111.1444 },
+  { id: '3502', name: 'Kab. Ponorogo', lat: -7.9711, lng: 111.4920 },
+  { id: '3503', name: 'Kab. Trenggalek', lat: -8.1755, lng: 111.6601 },
+  { id: '3504', name: 'Kab. Tulungagung', lat: -8.1147, lng: 111.9366 },
+  { id: '3505', name: 'Kab. Blitar', lat: -8.1347, lng: 112.2199 },
+  { id: '3506', name: 'Kab. Kediri', lat: -7.8300, lng: 112.1500 },
+  { id: '3507', name: 'Kab. Malang', lat: -8.1636, lng: 112.5714 },
+  { id: '3508', name: 'Kab. Lumajang', lat: -8.1332, lng: 113.2223 },
+  { id: '3509', name: 'Kab. Jember', lat: -8.1724, lng: 113.7005 },
+  { id: '3510', name: 'Kab. Banyuwangi', lat: -8.2192, lng: 114.3691 },
+  { id: '3511', name: 'Kab. Bondowoso', lat: -7.9392, lng: 113.8447 },
+  { id: '3512', name: 'Kab. Situbondo', lat: -7.7569, lng: 114.0538 },
+  { id: '3513', name: 'Kab. Probolinggo', lat: -7.8697, lng: 113.3137 },
+  { id: '3514', name: 'Kab. Pasuruan', lat: -7.7470, lng: 112.8360 },
+  { id: '3515', name: 'Kab. Sidoarjo', lat: -7.4478, lng: 112.7183 },
+  { id: '3516', name: 'Kab. Mojokerto', lat: -7.5516, lng: 112.4897 },
+  { id: '3517', name: 'Kab. Jombang', lat: -7.5457, lng: 112.2323 },
+  { id: '3518', name: 'Kab. Nganjuk', lat: -7.6033, lng: 111.9011 },
+  { id: '3519', name: 'Kab. Madiun', lat: -7.5996, lng: 111.6617 },
+  { id: '3520', name: 'Kab. Magetan', lat: -7.6496, lng: 111.3359 },
+  { id: '3521', name: 'Kab. Ngawi', lat: -7.4208, lng: 111.3965 },
+  { id: '3522', name: 'Kab. Bojonegoro', lat: -7.2655, lng: 111.8384 },
+  { id: '3523', name: 'Kab. Tuban', lat: -6.8953, lng: 112.0460 },
+  { id: '3524', name: 'Kab. Lamongan', lat: -7.1283, lng: 112.3165 },
+  { id: '3525', name: 'Kab. Gresik', lat: -7.1539, lng: 112.6561 },
+  { id: '3526', name: 'Kab. Bangkalan', lat: -7.0270, lng: 112.9463 },
+  { id: '3527', name: 'Kab. Sampang', lat: -7.0984, lng: 113.2687 },
+  { id: '3528', name: 'Kab. Pamekasan', lat: -7.1566, lng: 113.4862 },
+  { id: '3529', name: 'Kab. Sumenep', lat: -6.9961, lng: 113.9114 },
+
+  // --- KOTA (9) ---
+  { id: '3571', name: 'Kota Kediri', lat: -7.8480, lng: 112.0178 },
+  { id: '3572', name: 'Kota Blitar', lat: -8.0954, lng: 112.1609 },
+  { id: '3573', name: 'Kota Malang', lat: -7.9666, lng: 112.6326 },
+  { id: '3574', name: 'Kota Probolinggo', lat: -7.7543, lng: 113.2159 },
+  { id: '3575', name: 'Kota Pasuruan', lat: -7.6453, lng: 112.9075 },
+  { id: '3576', name: 'Kota Mojokerto', lat: -7.4726, lng: 112.4381 },
+  { id: '3577', name: 'Kota Madiun', lat: -7.6296, lng: 111.5176 },
+  { id: '3578', name: 'Kota Surabaya', lat: -7.2575, lng: 112.7521 },
+  { id: '3579', name: 'Kota Batu', lat: -7.8671, lng: 112.5239 },
+];
