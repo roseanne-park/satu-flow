@@ -13,7 +13,7 @@ const RegionComparison = ({ dbData, selectedYear, currentIndicator, region1, set
     
     if (names.length > 0) return names;
     
-    // Fallback yang aman (mendukung jika REGIONS berbentuk Array object atau Object keys)
+    // Fallback 
     return Array.isArray(REGIONS) 
       ? REGIONS.map((r:any) => r.name).sort() 
       : Object.keys(REGIONS).sort();

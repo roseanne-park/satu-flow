@@ -12,8 +12,6 @@ const GisMap = ({ dbData, leafletLoaded, currentIndicator, selectedYear }: any) 
   const mapRef = useRef<any>(null);
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const markersLayerRef = useRef<any>(null);
-
-  // 1. MEMO: Siapkan daftar region sekali saja
   const regionsList = useMemo(() => {
     if (Array.isArray(REGIONS)) {
         return REGIONS.map((r: any) => {
@@ -37,7 +35,7 @@ const GisMap = ({ dbData, leafletLoaded, currentIndicator, selectedYear }: any) 
     const regionSums: Record<string, number> = {};
     let hasDataFound = false;
 
-    // 2. ULTRA OPTIMASI: Single Pass Loop (O(N))
+    // ULTRA OPTIMASI:
     for (let i = 0; i < tableData.length; i++) {
         const row = tableData[i];
         if (String(row.tahun) === targetYearStr) {
@@ -53,8 +51,6 @@ const GisMap = ({ dbData, leafletLoaded, currentIndicator, selectedYear }: any) 
 
     let min = Infinity, max = -Infinity;
     const points: any[] = [];
-
-    // 3. OPTIMASI: Direct Lookup (O(M))
     for (let i = 0; i < regionsList.length; i++) {
         const region = regionsList[i];
         const normName = normalize(region.name);
@@ -71,22 +67,16 @@ const GisMap = ({ dbData, leafletLoaded, currentIndicator, selectedYear }: any) 
   }, [selectedYear, currentIndicator, dbData, regionsList]);
 
   useEffect(() => {
-    // Pastikan Leaflet sudah dimuat, container ada, dan data tersedia
     if (!leafletLoaded || !mapContainerRef.current || !mapData.hasData) return;
 
     const L = (window as any).L;
     if (!L) return;
-
-    // PERBAIKAN UTAMA:
-    // Cek apakah instance peta yang tersimpan masih menempel pada container DOM yang aktif.
-    // Jika container berubah (misal karena baru kembali dari Empty State), hancurkan peta lama.
     if (mapRef.current && mapRef.current.getContainer() !== mapContainerRef.current) {
         mapRef.current.remove();
         mapRef.current = null;
         markersLayerRef.current = null;
     }
 
-    // Inisialisasi Peta (Jika belum ada atau baru saja di-reset)
     if (!mapRef.current) {
         mapRef.current = L.map(mapContainerRef.current, {
             preferCanvas: true, 
@@ -100,14 +90,10 @@ const GisMap = ({ dbData, leafletLoaded, currentIndicator, selectedYear }: any) 
         L.control.zoom({ position: 'bottomright' }).addTo(mapRef.current);
     }
 
-    // 4. OPTIMASI RENDER: Gunakan requestAnimationFrame untuk update visual marker
+    //OPTIMASI RENDER
     requestAnimationFrame(() => {
         if (!markersLayerRef.current) return;
-        
-        // Bersihkan marker lama
         markersLayerRef.current.clearLayers();
-        
-        // Pastikan ukuran peta valid
         mapRef.current.invalidateSize();
 
         const { minVal, maxVal, points } = mapData;
@@ -151,7 +137,7 @@ const GisMap = ({ dbData, leafletLoaded, currentIndicator, selectedYear }: any) 
         }
     });
 
-  }, [leafletLoaded, mapData, currentIndicator]); // Dependency tetap
+  }, [leafletLoaded, mapData, currentIndicator]);
 
   if (!mapData.hasData) {
     return (
