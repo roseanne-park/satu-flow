@@ -1,18 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Activity,
-  Map as MapIcon,
-  Users,
-  LayoutDashboard,
-  Heart,
-  LogOut,
-  User,
-  ChevronDown,
-  Calendar,
-  Menu
-} from 'lucide-react';
+  Activity, Map as MapIcon, Users, LayoutDashboard, Heart, LogOut, User, ChevronDown, Calendar, Menu} from 'lucide-react';
 
-// Asumsi import komponen (pastikan file-file ini juga support TS atau .js)
 import LandingPage from './landing_page';
 import AuthPage from './register_login';
 import DashboardAnalysis from './dasboard_analisis';
@@ -125,10 +114,7 @@ export default function App() {
   return (
     <div className="flex h-screen bg-pink-50 overflow-hidden font-sans text-slate-800">
 
-      {/* --- OVERLAY MOBILE --- 
-          Hanya muncul di mobile (md:hidden) saat sidebar terbuka.
-          Menggunakan z-30 agar di bawah sidebar tapi di atas konten.
-      */}
+      {/* --- OVERLAY MOBILE --- */}
       <div
         onClick={() => setSidebarOpen(false)}
         className={`
@@ -137,10 +123,7 @@ export default function App() {
         `}
       />
 
-      {/* --- SIDEBAR --- 
-          Mobile: Fixed position, slide in/out.
-          Desktop: Relative position, width transition.
-      */}
+      {/* --- SIDEBAR ---*/}
       <aside
         className={`
           fixed md:relative z-40 h-full bg-white border-r border-pink-100 shadow-xl shadow-pink-100/50
